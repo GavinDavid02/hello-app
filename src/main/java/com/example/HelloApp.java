@@ -8,16 +8,18 @@ public class HelloApp {
         if (args.length == 0) {
             result = "World";
         } else {
-            StringBuilder names = new StringBuilder();
+            StringBuilder nameBuilder = new StringBuilder();
 
             for (String name : args) {
-                if (names.length() > 0) {
-                    names.append(", ");
-                }
-                names.append(name);
+                nameBuilder.append(name).append(", ");
             }
 
-            result = names.toString();
+            // Remove trailing ", "
+            if (nameBuilder.length() > 0) {
+                result = nameBuilder.substring(0, nameBuilder.length() - 2);
+            } else {
+                result = "";
+            }
         }
 
         System.out.println("Hello, " + result + "!");

@@ -3,25 +3,10 @@ package com.example;
 public class HelloApp {
     public static void main(String[] args) {
 
-        String result;
+        String names = (args.length == 0)
+                ? "World"
+                : String.join(", ", args);
 
-        if (args.length == 0) {
-            result = "World";
-        } else {
-            StringBuilder nameBuilder = new StringBuilder();
-
-            for (String name : args) {
-                nameBuilder.append(name).append(", ");
-            }
-
-            // Remove trailing ", "
-            if (nameBuilder.length() > 0) {
-                result = nameBuilder.substring(0, nameBuilder.length() - 2);
-            } else {
-                result = "";
-            }
-        }
-
-        System.out.println("Hello, " + result + "!");
+        System.out.println("Hello, " + names + "!");
     }
 }
